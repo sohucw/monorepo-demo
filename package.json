@@ -1,0 +1,27 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c",
+    "preinstall": "npx only-allow pnpm",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "pnpm build && pnpm publish",
+    "publish": "changeset publish --registry=https://registry.npmjs.com/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "rollup": "^3.21.6",
+    "rollup-plugin-typescript2": "^0.34.1",
+    "typescript": "^5.0.4",
+    "@changesets/cli": "^2.26.1"
+  }
+}
