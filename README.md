@@ -77,5 +77,7 @@ pnpm install -wD @commitlint/cli @commitlint/config-conventional husky
 添加 commitlint.config.js 配置文件
 
 
+
 ### 代码规范检查
 
+test
