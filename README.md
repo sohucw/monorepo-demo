@@ -73,11 +73,49 @@ revert: 撤销某次提交
 ```
 pnpm install -wD @commitlint/cli @commitlint/config-conventional husky
 
+
+工程根目录下的 package.json 中增加一条 script:
+
 ```
 添加 commitlint.config.js 配置文件
+"scripts": {
+  "postinstall": "husky install"
+}
 
-
+执行 pnpm run postinstall 会在项目根目录下生成 .husky
+执行如下命令新增一个husky的hook：
+npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 
 ### 代码规范检查
+良好的代码编写规范对团队的可持续发展起着至关重要的作用，因此接下来我会配置 eslint 对代码进行统一的规范校验，配合 lint-staged 可以对已经提交的代码进行校验。
 
-test
+安装 eslint 和 lint-stage。
+
+```
+$ pnpm install -wD eslint lint-staged @typescript-eslint/parser @typescript-eslint/eslint-plugin
+````
+
+lint-staged 是 Git 里的概念，表示暂存区，lint-staged 表示只检查暂存区中的文件。
+
+package.json 中增加如下配置:
+
+```
+
+"lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "git add"
+    ]
+}
+
+```
+husky 中增加 pre-commit 校验：
+
+
+npx husky add .husky/pre-commit "npx --no-install lint-staged"
+
+
+
+
+### 其他资料
+- https://github.com/astonishqft/pnpm-monorepo-demo
