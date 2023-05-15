@@ -119,3 +119,4 @@ npx husky add .husky/pre-commit "npx --no-install lint-staged"
 
 ### 其他资料
 - https://github.com/astonishqft/pnpm-monorepo-demo
+- https://semver.org/ 语义化版本管理

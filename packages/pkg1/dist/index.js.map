@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../src/index.ts"],"sourcesContent":["export function pk1(): any {\n    console.log('I am pk1');\n}\n"],"names":[],"mappings":";;;;;;aAAgB,GAAG,GAAA;IACf,IAAA,OAAO,CAAC,GAAG,CAAC,UAAU,CAAC,CAAC;IAC5B;;;;;;;;"}
