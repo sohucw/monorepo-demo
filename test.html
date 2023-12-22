@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #drag-element {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: move;
+      will-change: left top;
+    }
+  </style>
+</head>
+<body>
+  <div id="drag-element" draggable="true"></div>
+
+  <script>
+    const dragElement = document.getElementById('drag-element');
+    let initialX = 0;
+    let initialY = 0;
+
+    dragElement.addEventListener('dragstart', dragStart);
+    document.addEventListener('dragover', dragOver);
+    document.addEventListener('drop', drop);
+    document.addEventListener('dragend', dragend);
+
+    function dragStart(event) {
+        initialX = event.clientX;
+        initialY = event.clientY;
+    }
+    function dragOver(event) {
+        event.preventDefault();
+        dragElement.style.opacity = '0';
+    }
+
+    function drop(event) {
+        const deltaX = event.clientX - initialX;
+        const deltaY = event.clientY - initialY;
+        const newLeft = dragElement.offsetLeft + deltaX;
+        const newTop = dragElement.offsetTop + deltaY;
+
+        dragElement.style.left = newLeft + 'px';
+        dragElement.style.top = newTop + 'px';
+    }
+    function dragend () {
+        console.log('dropend')
+        dragElement.style.opacity = '1';
+    }  
+    </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
   "name": "@dawei-front/pkg2",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "",
   "main": "src/index.ts",
   "scripts": {
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dawei-front/pkg1": "workspace:^2.1.0"
+    "@dawei-front/pkg1": "workspace:^2.2.0"
   }
 }
